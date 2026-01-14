@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svetly/Tmavy rezim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vitajte</h1>
+        <p>Tato stranka automaticky prepina medzi svetlym a tmavym rezimom podla vasich systemovych preferencii.</p>
+
+        <div class="theme-switch">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+            <span class="theme-label">Tmavy rezim</span>
+        </div>
+
+        <div class="card">
+            <h2>Ukazka karty</h2>
+            <p>Toto je ukazka obsahu v karte. Farby sa menia podla aktualneho rezimu.</p>
+            <button class="btn">Tlacidlo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
