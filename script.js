@@ -15,16 +15,19 @@ function getThemePreference() {
 }
 
 // Nastavenie temy
-function setTheme(theme) {
+function setTheme(theme, save = true) {
     html.setAttribute('data-theme', theme);
     themeToggle.checked = theme === 'dark';
-    localStorage.setItem('theme', theme);
+    if (save) {
+        localStorage.setItem('theme', theme);
+    }
 }
 
 // Inicializacia pri nacitani stranky
 function init() {
     const theme = getThemePreference();
-    setTheme(theme);
+    const hasSavedPreference = localStorage.getItem('theme') !== null;
+    setTheme(theme, hasSavedPreference);
 }
 
 // Prepnutie temy pri kliknuti na prepinac
@@ -37,7 +40,7 @@ themeToggle.addEventListener('change', () => {
 prefersDark.addEventListener('change', (e) => {
     // Ak uzivatel nema manualne nastavenu preferenciu, sleduj system
     if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
+        setTheme(e.matches ? 'dark' : 'light', false);
     }
 });
 
